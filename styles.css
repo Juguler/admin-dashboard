@@ -267,3 +267,19 @@ button{
 .trend-bar{
     grid-area:trends
 }
+
+#greet{
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+#name{
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.account p{
+    font-weight: 700;
+    font-size: 1.2em;
+}
