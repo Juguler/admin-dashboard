@@ -9,6 +9,13 @@ body{
         'sidebar header'
         'sidebar main';
 }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .sidebar {
     background-color: #3a86ff;
     height: 100vh;
@@ -19,24 +26,20 @@ body{
 .header {
     display: grid;
     gap: 30px;
-    height:270px;
     grid-area:header;
+    z-index: 1;
 }
 
-.main-content {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-}
  
 .logo{
     display:flex;
     flex-direction: row;
     color:white;
+    align-items:center;
 }
 
 .logo img{
     height:30px;
-    margin-top:33px;
 }
 
 .home-icon:before {
@@ -129,6 +132,7 @@ form {
     margin-right:25px;
 }
 
+
 .header-bottom {
     display: flex;
     justify-content: space-between;
@@ -153,25 +157,25 @@ button{
 }
 
 .main{
+    overflow: auto;
     grid-area:main;
     padding: 32px;
     background-color: #f7f7f8;
     display: grid;
     grid-template-columns: 1fr auto;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: min-content 1fr;
     grid-template-areas:
-        'projects announcements'
+        'projects announcement-bar'
         'projects trends';
     gap: 32px;
-    z-index:0;
+    
 }
 
 .projects{
-    grid-area:projects;
     display:grid;
     gap:32px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: min-content 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(300px,1fr));
+    grid-template-rows: 1fr 1fr 1fr;
     border-radius: 12px;
 }
 .project-info{
@@ -181,12 +185,18 @@ button{
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
+.projects-bar{
+    grid-area:projects;
+}
+
 .star-icon:before {
     content:"\1F31F";
+    cursor:pointer;
 }
 
 .eye-icon:before {
     content:"\1F441";
+    cursor:pointer;
 }
 
 .icons{
@@ -213,23 +223,28 @@ button{
 .account{
     display:flex;
     gap:15px;
-    justify-content: center;
+    align-items: center;
 }
 
-.announcement-bar{
+.announcement-tab{
     background-color: white;
     padding: 32px;
     border-radius: 12px;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
+.announcement-bar{
+    grid-area:announcement-bar;
+}
+
 .announcement{
     border-bottom: 1px solid rgb(231, 231, 231);
 }
 
-.announcement h3{
+/*h3 {
     font-size: 16px;
-}
+    margin-left:10px;
+}*/
 
 .trends{
     background-color: white;
@@ -248,4 +263,7 @@ button{
 .trending-profiles h5{
     font-weight: 500;
     font-size: 1.1em;
+}
+.trend-bar{
+    grid-area:trends
 }
