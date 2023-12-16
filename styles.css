@@ -13,11 +13,14 @@ body{
     background-color: #3a86ff;
     height: 100vh;
     padding: 2em;
+    grid-area:sidebar;
 }
 
 .header {
     display: grid;
     gap: 30px;
+    height:270px;
+    grid-area:header;
 }
 
 .main-content {
@@ -110,7 +113,7 @@ form {
     align-items: center;
 }
 
-.head.upper {
+.header-upper {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
@@ -118,10 +121,12 @@ form {
 }
 .magnifier-icon:before {
     content:"\1F50D";
+    cursor:pointer;
 }
 
 .bell-icon:before {
     content:"\1F514";
+    margin-right:25px;
 }
 
 .header-bottom {
@@ -148,6 +153,7 @@ button{
 }
 
 .main{
+    grid-area:main;
     padding: 32px;
     background-color: #f7f7f8;
     display: grid;
@@ -157,13 +163,16 @@ button{
         'projects announcements'
         'projects trends';
     gap: 32px;
+    z-index:0;
 }
 
 .projects{
+    grid-area:projects;
     display:grid;
     gap:32px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: min-content 1fr 1fr;
+    border-radius: 12px;
 }
 .project-info{
     padding:32px;
@@ -185,4 +194,58 @@ button{
     margin-top:48px;
     justify-content: flex-end;
     gap:20px;
+}
+
+#search{
+    border-radius: 18px;
+    background-color: #e7e5e4;
+    border: none;
+    padding: 1em 2em;
+    margin-left: 1.5em;
+    width: min(80% , 700px);
+}
+
+.input-container{
+    display: flex;
+    align-items: center;
+}
+
+.account{
+    display:flex;
+    gap:15px;
+    justify-content: center;
+}
+
+.announcement-bar{
+    background-color: white;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.announcement{
+    border-bottom: 1px solid rgb(231, 231, 231);
+}
+
+.announcement h3{
+    font-size: 16px;
+}
+
+.trends{
+    background-color: white;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.trending-profiles{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.trending-profiles h5{
+    font-weight: 500;
+    font-size: 1.1em;
 }
